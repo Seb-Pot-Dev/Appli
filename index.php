@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,5 +35,7 @@
         </p>
     </form>
 </body>
+
+<button onclick="location.href='recap.php'" type="button">Your products <?= count($_SESSION['products']) ?></button>
 
 </html>

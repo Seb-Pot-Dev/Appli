@@ -13,7 +13,7 @@ session_start();
 
 <body>
     <?php
-    var_dump($_SESSION["products"]);
+
     if (!isset($_SESSION['products']) || empty($_SESSION['products'])) { //This IF condition verify: Or the 'products' key doesn't exist, or this key exist but is empty, in both case it returns an echo.
         echo "<p>Aucun produit en session...</p>";
     } else { //In case the IF isnt true, ELSE is operating and display an HTML table.
@@ -42,11 +42,13 @@ session_start();
         }
         // Now the foreach boucle is over, we're doing an echo of a row wich is composed of 2 cells. The first one fusionate 4 cells (colspan=4) and display "Total général:", the second one display the $totalGeneral formatted with number_format()
         echo "<tr>",
-        "<td colspan=4>Total général : </td>",
+        "<td colspan=3>Total général : </td>",
+        "<td><strong>" . count($_SESSION['products'])."</strong></td>",
         "<td><strong>" . number_format($totalGeneral, 2, ",", "&nbsp;") . "&nbsp;€</strong></td>",
         "</tr>",
         "</tbody>",
         "</table>";
+        
     }
     ?>
 </body>
