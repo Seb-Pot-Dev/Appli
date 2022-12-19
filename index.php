@@ -52,5 +52,18 @@ session_start();
                 echo $total ?>)
                 
 </button>
+<?php
+// Check if a message is set in the session
+if (isset($_SESSION['message'])) {
+    // Display the message
+    echo '<div class="message">' . $_SESSION['message'] . '</div>';
+
+    // Unset the message so it is not displayed again on subsequent page loads
+    unset($_SESSION['message']);
+}
+
+
+?>
+
 
 </html>

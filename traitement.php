@@ -28,7 +28,13 @@ If filter did fail, they will return smth as "False" or "Null", then this If fun
         if (isset($_SESSION['products'])|| empty($_SESSION['products'])){
             $_SESSION['qttTotal']+=$qtt;
         }
-
+        //SET A SUCCESS MESSAGE
+        $_SESSION['message'] = "Produit ajouter au panier avec succès.";
+    }
+    else{
+        //SET AN ERROR MESSAGE
+        $_SESSION['message'] = "Il y a eu une erreur lors de l'ajout du produit. Recommencez s'il vous plait.";
+    }
 /*
 FIRST : We create for each product, an associative array "$product"
 
@@ -40,6 +46,5 @@ THIRD : If the $_SESSION['qttTotal'] variable is set,  the $qtt value is added
 */
         
     }
-}
 
 header("Location:index.php");
