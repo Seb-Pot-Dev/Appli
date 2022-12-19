@@ -25,7 +25,7 @@ If filter did fail, they will return smth as "False" or "Null", then this If fun
 
         //THIRD
         $qttTotal=0;
-        if (isset($_SESSION['qttTotal'])){
+        if (isset($_SESSION['products'])|| empty($_SESSION['products'])){
             $_SESSION['qttTotal']+=$qtt;
         }
 
