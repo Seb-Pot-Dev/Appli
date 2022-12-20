@@ -4,18 +4,30 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="indexStyle.css">
+        <title>Ajout produit</title>
+    </head>
+    
+    <body>
+    <main id="background">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="indexStyle.css">
-    <title>Ajout produit</title>
-</head>
+    <?php
+    // Check if a message is set in the session
+    if (isset($_SESSION['message'])) {
+        // Display the message
+        echo '<div class="message">' . $_SESSION['message'] . '</div>';
 
-<body>
+        // Unset the message so it is not displayed again on subsequent page loads
+        unset($_SESSION['message']);
+    }
+    ?>
     <div id="container">
         <h1>Ajouter un produit</h1>
-        <form action="traitement.php" method="post">
+        <form action="traitement.php?action=add" method="post">
             <p class='form'>
                 <label>
                     Nom du produit :
@@ -50,20 +62,9 @@ session_start();
                     }
                 }
                 echo $total ?>)
-                
+
 </button>
-<?php
-// Check if a message is set in the session
-if (isset($_SESSION['message'])) {
-    // Display the message
-    echo '<div class="message">' . $_SESSION['message'] . '</div>';
-
-    // Unset the message so it is not displayed again on subsequent page loads
-    unset($_SESSION['message']);
-}
-
-
-?>
 
 
 </html>
+</main>
