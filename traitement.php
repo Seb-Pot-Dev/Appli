@@ -57,25 +57,39 @@ switch ($_GET["action"]) {
         if (isset($_SESSION["products"])) {
             $_SESSION["products"][$id]["qtt"]++;
             $_SESSION["products"][$id]["total"] += $_SESSION["products"][$id]["price"];
-
-            header("Location: recap.php");
+            $_SESSION['messageQtt'] = "<p class='succes'>Quantité modifiée avec succès.<p>";
+            header("Location:recap.php");
         }
         break;
         //decrement a product qtt
     case "minusQtt":
         if (isset($_SESSION['products']) && $_SESSION["products"][$id]["qtt"] == 1) {
             unset($_SESSION['products'][$id]);
+            $_SESSION['messageQtt'] = "<p class='succes'>Quantité modifiée avec succès";
             header("Location:recap.php");
         } elseif (isset($_SESSION['products'])) {
             $_SESSION["products"][$id]["qtt"]--;
             $_SESSION["products"][$id]["total"] -= $_SESSION["products"][$id]["price"];
-            header("Location: recap.php");
+            $_SESSION['messageQtt'] = "<p class='succes'>Quantité modifiée avec succès.";
+            header("Location:recap.php");
         }
         break;
 
+    case "deleteProduct":
+        if (isset($_SESSION['products'])) {
+            unset($_SESSION['products'][$id]);
+            $_SESSION['messageDelete'] = "<p class='error'>Article supprimé du panier avec succès.";
+            header("Location:recap.php");
+        }
+        break;
+
+
         //remove all products from basket
     case "deleteBasket":
-        unset($_SESSION['products']);
-        header("index:recap.php");
+        if (isset($_SESSION['products'])) {
+            unset($_SESSION['products']);
+            $_SESSION['messageDeleteAll'] = "<p class='error'>Panier vidé avec succès.";
+            header("Location:recap.php");
+        }
         break;
 }

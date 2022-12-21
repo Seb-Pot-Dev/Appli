@@ -18,13 +18,22 @@ session_start();
     <?php
     // Check if a message is set in the session
     if (isset($_SESSION['message'])) {
-        // Display the message
+        // Display the message with class='message' style
         echo '<div class="message">' . $_SESSION['message'] . '</div>';
-
+        echo '<script>
+        setTimeout(function() {
+            // Select all elements with class="message" and set their display style to "none"
+            var messages = document.getElementsByClassName("message");
+            for (var i = 0; i < messages.length; i++) {
+                messages[i].style.display = "none";
+            }
+        }, 3000);
+            </script>';
         // Unset the message so it is not displayed again on subsequent page loads
         unset($_SESSION['message']);
     }
     ?>
+    <!-- CONTAINER -->
     <div id="container">
         <h1>Ajouter un produit</h1>
         <form action="traitement.php?action=add" method="post">

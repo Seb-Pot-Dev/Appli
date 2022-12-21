@@ -2,20 +2,105 @@
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
+    text-decoration: none;
+}
+/*------MESSAGE------------*/
+.message {
+  position: absolute;
+  size: relative;
+  animation: appear 1.5s;
+}
+.error {
+  background-color: rgba(230, 94, 92, 0.7);
+  border-radius: 5px;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.succes {
+  background-color: rgba(169, 227, 171, 0.7);
+  border-radius: 5px;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+/*--------a deleteBasket ---------*/
+#deleteBasket{
+  background-color: red;
+  border-radius: 5px;
+  font-size: x-small;
+  padding: 4px;
+  margin: 4px;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  
+}
+#deleteBasket a:any-link{
+  display: inline-block;
+  color:white;
+  text-decoration: none;
+}
+#deleteBasket:hover{
+  color:white;
+  text-decoration: none;
+  animation: rotate 4s infinite;
+}
+/*--------a deleteProduct----------*/
+#deleteProduct{
+  align-self: flex-end;
+  background-color: red;
+  border-radius: 5px;
+  font-size: x-small;
+  padding: 4px;
+  margin: 4px;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+
+}
+#deleteProduct a:any-link{
+  color:white;
+  text-decoration: none;
+}
+#deleteProduct:hover{
+  color:white;
+  text-decoration: none;
 }
 /*--------BUTTON BACK HOME-------------*/
-.backHome{
- background-color: white;
+/* Add a background color and some padding to the button */
+.backHome {
+  border:none;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 16px;
 }
-.backHome:hover{
- animation: rainbow-background-rotate 4s infinite;
- cursor: pointer;
+
+/* Add some hover effects to the button */
+.backHome:hover {
+  cursor: pointer;
+  animation: rotate 4s infinite;
+  color: black;
 }
-/*-----------BUTTON + / - ---------------*/
+
+/*-----------BUTTON PLUS / MINUS ---------------*/
 #minusAndPlus{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: row;
+}
+#minusAndPlus a:any-link{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
 }
 #minus{
   display: flex;
@@ -26,6 +111,9 @@
   padding: 3px;
   background-color: #46a623;
   border-radius: 50%;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+
 }
 #minus:hover{
   display: flex;
@@ -36,7 +124,7 @@
   padding: 3px;
   background-color: #46a623;
   border-radius: 50%;
-  border: 1px solid black;
+  border: 2px solid black;
 }
 #plus{
   display: flex;
@@ -47,6 +135,8 @@
   padding: 3px;
   background-color: #46a623;
   border-radius: 50%;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
 }
 #plus:hover{
   display: flex;
@@ -57,21 +147,7 @@
   padding: 3px;
   background-color: #46a623;
   border-radius: 50%;
-  border: 1px solid black;
-}
-a:any-link{
-  /* border-radius: 50%; */
-  /* background-color: black;
-  border: 1px solid black; */
-  text-decoration: none;
-  color: white;
-  
-}
-a:any-link:hover{
-  /* border: 1px solid black;  */
-  /* background-color: black;*/
-  text-decoration: none;
-  color: white;
+  border: 2px solid black;
 }
 /*------TABLE-----------*/
 table {
@@ -82,8 +158,20 @@ th, td {
   text-align: left;
   padding: 8px;
 }
+span#totalProduct{
+  display: flex;
+  justify-content: space-between;
+}
+
+td#deleteBasketCell{
+  text-align: center;
+}
+td#backHomeCell{
+  display: flex;
+  justify-content: center;
+}
 th{
-  background-color: #46a623;
+  background-color: #808080;
   
 }
 tr:nth-child(even) {
@@ -91,11 +179,37 @@ tr:nth-child(even) {
 }
 
 tr:hover {
-  animation: rainbow-border 4s infinite;
-  animation: rainbow-scale 4s infinite;
+  animation: scale 4s infinite;
   background-color: #99192c45;
 }
-/* ----RAINBOW------
+/* ----KEYFRAMES------*/
+@keyframes rotate {
+  0% {
+    rotate: 0deg;
+  }
+  5%{
+    rotate: 10deg;
+  }
+  15% {
+    rotate: -5deg;
+  }
+  30% {
+    rotate: 0deg;
+  }
+  40%{
+    rotate: 0deg;
+  }
+  45% {
+    rotate: 10deg;
+  }
+  55%{
+    rotate: -5deg;
+  }
+  70%{
+    rotate: 0deg;
+  }
+}
+
   @keyframes rainbow {
     0% {
       color: red;
@@ -155,7 +269,7 @@ tr:hover {
     100% {
         border-color: red;
     }
-  }*/
+  }
   @keyframes rainbow-scale {
     0% {
       color: red;
@@ -193,7 +307,37 @@ tr:hover {
       color: red;
       scale: 0.99;
     }
-  }/*
+  }
+  @keyframes scale {
+    0% {
+      scale:1;
+    }
+    15% {
+      scale:0.99;
+    }
+    30% {
+      scale:1;
+    }
+    45% {
+      scale:0.99;
+    }
+    50% {
+    }
+    60% {
+      scale:1;
+      
+    }
+    75% {
+      scale:0.99;
+    }
+    90% {
+      scale:1;
+    }
+    
+    100% {
+      scale: 0.99;
+    }
+  }
   @keyframes rainbow-background {
     0% {
       background-color: red;
@@ -219,4 +363,25 @@ tr:hover {
     100% {
       background-color: red;
     }
-  } */
+  } 
+  @keyframes appear {
+    0% {
+      /* Initial state: l'élément est complètement transparent */
+      opacity: 0;
+    }
+    100% {
+      /* Final state: l'élément est complètement opaque */
+      opacity: 1;
+    }
+  }
+  @keyframes disappear {
+    0% {
+      /* Initial state: l'élément est complètement opaque */
+      opacity: 1;
+    }
+    100% {
+      /* Final state: l'élément est complètement transparent */
+      opacity: 0;
+    }
+  }
+  
