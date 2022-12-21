@@ -1,0 +1,162 @@
+/* Form container */
+#background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 8px;
+  }
+  
+  /* Form fields */
+  .form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .form label {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    text-align: right;
+    margin-right: 10px;
+  }
+  
+  .form input {
+    flex: 1;
+    font-size: 14px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+  }
+  
+  /* Form button */
+  #addProduct {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0070c9;
+    color: white;
+    cursor: pointer;
+  }
+  
+  #addProduct:hover {
+    background-color: #0062b1;
+  }
+  
+  #addProduct:active {
+    background-color: #00549e;
+  }
+  
+  /* Shopping cart button */
+  #basket {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0070c9;
+    color: white;
+    cursor: pointer;
+  }
+  
+  #basket:hover {
+    background-color: #0062b1;
+  }
+  
+  #basket:active {
+    background-color: #00549e;
+  }
+  /*--------BUTTON BACK HOME-------------*/
+/* Add a background color and some padding to the button */
+.backHome {
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  border:none;
+  border-radius: 5px;
+  background-color: #39cf3e;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 16px;
+}
+
+/* Add some hover effects to the button */
+.backHome:hover {
+  cursor: pointer;
+  animation: rotate 4s infinite;
+  color: black;
+}
+
+/*-----------BUTTON PLUS / MINUS ---------------*/
+#minusAndPlus{
+  display: flex;
+  justify-content: space-between;
+  align-items: row;
+}
+#minusAndPlus a:any-link{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+#minus{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  padding: 3px;
+  background-color: #46a623;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+}
+#minus:hover{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  padding: 3px;
+  background-color: #46a623;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+#plus{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  padding: 3px;
+  background-color: #46a623;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+#plus:hover{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  padding: 3px;
+  background-color: #46a623;
+  border-radius: 50%;
+  border: 2px solid black;
+}
