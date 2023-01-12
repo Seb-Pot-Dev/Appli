@@ -41,7 +41,7 @@ function findOneById($id)
     $storeStatement = $db->prepare($sqlQuery);
 
     $storeStatement->execute([':id'=>$id]);
-    $store = $storeStatement->fetchAll();
+    $store = $storeStatement->fetch();
     return $store;
 }
 function insertProduct($name, $price, $description){

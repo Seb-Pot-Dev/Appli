@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require_once('db-functions.php');
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 
 switch ($_GET["action"]) {
@@ -91,5 +91,28 @@ switch ($_GET["action"]) {
             $_SESSION['messageDeleteAll'] = "<p class='error'>Panier vidé avec succès.";
             header("Location:recap.php");
         }
+        break;
+
+    case "addToCart":
+        if (isset($_SESSION["products"])) {
+            foreach ($_SESSION['products'] as $index => $produit) {
+                if ($_GET['id'] == $produit['id']) {
+
+                    header("Location:traitement.php?action=addQtt&id=" . $index);
+                    die;
+                }
+            }
+        }
+        // $product = findOneById($_GET['id']);
+        // $product['qtt'] = 1;
+        // $product['total'] = $product['price'];
+        // $_SESSION['products'][] = $product;
+        // $location = "Location:product.php?id=" . $_GET['id'] . "";
+        // // var_dump($product);
+        // // die;
+        // header($location);
+
+
+
         break;
 }

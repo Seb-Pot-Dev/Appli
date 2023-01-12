@@ -4,10 +4,11 @@
 }
 
 #background {
-  background-color: rgb(87, 87, 87);
+  background-color: rgb(149, 149, 149);
   min-height: 100vh;
   padding-top: 20px;
 }
+
 #container {
   border: 3px solid black;
   max-width: 600px;
