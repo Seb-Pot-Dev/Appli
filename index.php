@@ -4,23 +4,38 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="indexStyle.css">
-        <title>Ajout produit</title>
-    </head>
-    
-    <body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="indexStyle.css">
+    <title>Ajout produit</title>
+</head>
+
+<body>
     <main id="background">
 
-    <?php
-    // Check if a message is set in the session
-    if (isset($_SESSION['message'])) {
-        // Display the message with class='message' style
-        echo '<div class="message">' . $_SESSION['message'] . '</div>';
-        echo '<script>
+        <?php
+        require_once('db-functions.php');
+
+
+        $store = findAll();
+
+
+        // On affiche chaques produits un a un
+        foreach ($store as $product) {
+        ?>
+            <p><?= $product['name']; ?></p>
+            <p><?= $product['price']; ?></p>
+        <?php
+        }
+
+
+        // Check if a message is set in the session
+        if (isset($_SESSION['message'])) {
+            // Display the message with class='message' style
+            echo '<div class="message">' . $_SESSION['message'] . '</div>';
+            echo '<script>
         setTimeout(function() {
             // Select all elements with class="message" and set their display style to "none"
             var messages = document.getElementsByClassName("message");
@@ -29,37 +44,37 @@ session_start();
             }
         }, 3000);
             </script>';
-        // Unset the message so it is not displayed again on subsequent page loads
-        unset($_SESSION['message']);
-    }
-    ?>
-    <!-- CONTAINER -->
-    <div id="container">
-        <h1>Ajouter un produit</h1>
-        <form action="traitement.php?action=add" method="post">
-            <p class='form'>
-                <label>
-                    Nom du produit :
-                    <input type="text" name="name">
-                </label>
-            </p>
-            <p class='form'>
-                <label>
-                    Prix du produit :
-                    <input type="number" step="any" name="price">
-                </label>
-            </p>
-            <p class='form'>
-                <label>
-                    Quantité désirée :
-                    <input type="number" name="qtt" value="1">
-                </label>
-            </p>
-            <p>
-                <input id="addProduct" type="submit" name="submit" value="Ajouter le produit">
-            </p>
-        </form>
-    </div>
+            // Unset the message so it is not displayed again on subsequent page loads
+            unset($_SESSION['message']);
+        }
+        ?>
+        <!-- CONTAINER -->
+        <div id="container">
+            <h1>Ajouter un produit</h1>
+            <form action="traitement.php?action=add" method="post">
+                <p class='form'>
+                    <label>
+                        Nom du produit :
+                        <input type="text" name="name">
+                    </label>
+                </p>
+                <p class='form'>
+                    <label>
+                        Prix du produit :
+                        <input type="number" step="any" name="price">
+                    </label>
+                </p>
+                <p class='form'>
+                    <label>
+                        Quantité désirée :
+                        <input type="number" name="qtt" value="1">
+                    </label>
+                </p>
+                <p>
+                    <input id="addProduct" type="submit" name="submit" value="Ajouter le produit">
+                </p>
+            </form>
+        </div>
 </body>
 
 <button id="basket" onclick="location.href='recap.php'" type="button">

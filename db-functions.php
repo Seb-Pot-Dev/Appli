@@ -1,29 +1,56 @@
 <?php
 
 
-try
+
+function dbFunction()
 {
-$db = new PDO(
-    'mysql:host=localhost;dbname=store;charset=utf8',
-    'root',
-    'root'
-);
+    try {
+        $db = new PDO(
+            'mysql:host=localhost;dbname=store_sp;charset=utf8',
+            'root',
+            '',
+            [
+                \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_CASE => PDO::CASE_NATURAL,
+                PDO::ATTR_ORACLE_NULLS => PDO::NULL_EMPTY_STRING
+            ]
+
+        );
+        return $db;
+    } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
+    }
 }
-catch (Exception $e)
+
+function findAll()
 {
-    die('Erreur : ' . $e->getMessage());
+    $db = dbFunction();
+
+    $sqlQuery = 'SELECT * FROM product';
+    $storeStatement = $db->prepare($sqlQuery);
+
+    $storeStatement->execute();
+    $store = $storeStatement->fetchAll();
+    return $store;
 }
+function findOneById($id)
+{
+    $db = dbFunction();
 
-$sqlQuery = 'SELECT * FROM recipes';
-$storeStatement = $mysqlClient->prepare($sqlQuery);
+    $sqlQuery = 'SELECT * FROM product WHERE id= :id';
+    $storeStatement = $db->prepare($sqlQuery);
 
-$storeStatement->execute();
-$store = $storeStatement->fetchAll();
-
-// On affiche chaques produits un a un
-foreach($store as $product){
-?>
-    <p><?php echo $product['author']; ?></p>
-<?php
+    $storeStatement->execute([':id'=>$id]);
+    $store = $storeStatement->fetchAll();
+    return $store;
 }
-?>
+function insertProduct($name, $price, $description){
+    $db = dbFunction();
+    $sqlQuery = 'INSERT INTO product (name, price, description)
+    VALUES (:name, :price, :description)';
+
+    $storeStatement = $db->prepare($sqlQuery);
+    $storeStatement->execute([':name'=>$name, ':price'=>$price, ':description'=>$description]);
+    $store = $storeStatement->fetch();
+    return $store;
+}
