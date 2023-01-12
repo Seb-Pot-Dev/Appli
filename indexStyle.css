@@ -7,12 +7,23 @@
     min-height: 100vh;
     padding-top: 20px;
   }
+
+main {
+    display: flex;
+    align-items: flex-start;
+    justify-content:start;
+    align-items: flex-start;
+}
 article {
-    border: 1px solid black;
-    max-width: 600px;
-    margin: auto;
-    /* margin-top: 100px; */
+    display: flex;
     background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 20px rgb(0, 0, 0);
-  }
+    padding: 10px;
+    margin: 5px;
+    box-shadow: 0 0 1px rgb(0, 0, 0);
+    height: 150px;
+    width: 150px;
+}
+article a{
+    text-decoration: none;
+    color: black;
+}

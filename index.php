@@ -12,7 +12,7 @@ session_start();
     <title>Ajout produit</title>
 </head>
 <body>
-    
+    <main>
     <?php
         require_once('db-functions.php');
         
@@ -26,8 +26,9 @@ session_start();
             <a href="product.php?id=<?= $product['id'] ?>"><?= $product['name']; ?></a>
             <?php // l'expression "<?=" est equivalent a <?php echo ?>
             <p><?= $product['price']; ?></p>
-            <p><?= mb_strimwidth($product['description'],0, 50+3, "...");?></p>
         </article>
         <?php
         }
         ?>
+
+    </main>
