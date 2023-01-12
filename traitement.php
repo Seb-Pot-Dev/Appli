@@ -99,18 +99,16 @@ switch ($_GET["action"]) {
                 if ($_GET['id'] == $produit['id']) {
 
                     header("Location:traitement.php?action=addQtt&id=" . $index);
-                    die;
+                    die; // si il y a pas de die, il va chercher le dernier header
                 }
             }
         }
-        // $product = findOneById($_GET['id']);
-        // $product['qtt'] = 1;
-        // $product['total'] = $product['price'];
-        // $_SESSION['products'][] = $product;
-        // $location = "Location:product.php?id=" . $_GET['id'] . "";
-        // // var_dump($product);
-        // // die;
-        // header($location);
+        $product = findOneById($_GET['id']);
+        $product['qtt'] = 1;
+        $product['total'] = $product['price'];
+        $_SESSION['products'][] = $product;
+        $location = "Location:product.php?id=" . $_GET['id'] . "";
+        header($location);
 
 
 

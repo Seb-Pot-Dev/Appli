@@ -7,10 +7,9 @@ $product = findOneById($_GET['id']);
 
 ?>
 <a href="index.php">Retour</a>
-<?php var_dump($product) ?>;
 
-<p><?= $product['name']; ?></p>;
-<p><?= $product['description'] ?></p>;
-<p><?= $product['price']; ?></p>;
+<p><?= $product['name']; ?></p>
+<p><?= $product['description'] ?></p>
+<p><?= $product['price']; ?></p>
 
 <a href="traitement.php?action=addToCart&id=<?= $_GET['id'] ?>">Ajouter un produit</a>

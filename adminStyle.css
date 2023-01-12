@@ -1,0 +1,173 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#background {
+  background-color: rgb(212, 212, 212);
+  min-height: 100vh;
+  padding-top: 20px;
+}
+
+#container {
+  border: 3px solid black;
+  max-width: 600px;
+  margin: auto;
+  /* margin-top: 100px; */
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 20px rgb(0, 0, 0);
+}
+label {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #333;
+  margin-bottom: 8px;
+  position: relative;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  animation: rainbow-scale 4s infinite;
+  text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
+}
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+form .form {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+form .form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+form .form input[type="text"],
+form .form input[type="number"] {
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  animation: rainbow-border 4s infinite;
+  border: 5px solid;
+  font-size: 16px;
+  resize: vertical;
+}
+form input#addProduct {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+/* -------------BASKET---------------*/
+#basket {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #54af4c;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+#basket:hover {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  animation: rotate 4s infinite;
+  background-color: #54af4c;
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+/*-------------- MESSAGE ------------- */
+.message {
+  size: relative;
+  position: absolute;
+  animation: appear 1.5s;
+
+}
+.error {
+  background-color: rgba(230, 94, 92, 0.7);
+  border-radius: 5px;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.succes {
+  background-color: rgba(169, 227, 171, 0.7);
+  border-radius: 5px;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+/*-----------HOVER-----------------*/
+form input#addProduct:hover {
+  animation: rotate 4s infinite;
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/*------------------------------------------------------*/
+@keyframes rotate {
+  0% {
+    rotate: 0deg;
+  }
+  5% {
+    rotate: 10deg;
+  }
+  15% {
+    rotate: -5deg;
+  }
+  30% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
+}
+@keyframes appear {
+  0% {
+    /* Initial state: l'élément est complètement transparent */
+    opacity: 0;
+  }
+  100% {
+    /* Final state: l'élément est complètement opaque */
+    opacity: 1;
+  }
+}
+@keyframes disappear {
+  0% {
+    /* Initial state: l'élément est complètement opaque */
+    opacity: 1;
+  }
+  100% {
+    /* Final state: l'élément est complètement transparent */
+    opacity: 0;
+  }
+}
