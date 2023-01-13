@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,8 +6,10 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="indexStyle.css">
     <script src="https://kit.fontawesome.com/a45e9c27c8.js" crossorigin="anonymous"></script>
-    <title>Ajout produit</title>
+    <title>Résultat de la recherche</title>
 </head>
+<?php require_once('db-functions.php'); ?>
+
 <body>
 <nav>
     <a href="index.php"><i class="fa-solid fa-house"></i></a>
@@ -25,11 +23,14 @@ session_start();
     <?php
         require_once('db-functions.php');
         
-        $store = findAll();
-        
-        
-        // On affiche chaques produits un a un
-        foreach ($store as $product) {
+     // Récupère les données de la recherche
+     $search = strtolower($_POST['search']);
+
+     // Appelle une fonction qui effectue la recherche dans la base de données en utilisant les données de la recherche
+     $results = searchProducts($search);
+ 
+     // Affiche les résultats de la recherche
+     foreach ($results as $product) {
         ?>
         <article >
             <a class="articleContent" href="product.php?id=<?= $product['id'] ?>">

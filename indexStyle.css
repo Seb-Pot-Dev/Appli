@@ -1,29 +1,108 @@
+/*--General--*/
 * {
     padding: 0;
     margin: 0;
 }
 #background {
-    background-color: rgb(212, 212, 212);
+    background-color: rgb(226, 226, 226);
     min-height: 100vh;
     padding-top: 20px;
   }
-
 main {
     display: flex;
-    align-items: flex-start;
-    justify-content:start;
-    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+
 }
+/*--Article--*/
 article {
     display: flex;
+    flex-direction: column;
+    justify-content:space-between;
     background-color: #fff;
-    padding: 10px;
-    margin: 5px;
+    margin: 5px; 
     box-shadow: 0 0 1px rgb(0, 0, 0);
-    height: 150px;
+    height: 250px;
     width: 150px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
-article a{
+article:hover{
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.222);
+}
+
+a.articleContent{
+    display: flex;
+    justify-content:space-between;
+    /* align-items: center; */
+    /* flex-direction: column; */
     text-decoration: none;
     color: black;
 }
+
+div.nameAndPrice{
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+}
+
+.img-background{
+    /* display: flex; */
+    background-color: rgba(255, 249, 236, 0.646);
+    height: 180px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+img {
+    max-width: 100%; /* pour que l'image ne dépasse pas la largeur de l'élément parent */
+    height: auto; /* pour que l'image garde son ratio d'aspect */
+    max-height: 100%;
+    /* margin: 10px; */
+}
+.productName{
+    text-decoration: none;
+    color: black;
+}
+.price{
+    color: #80b500
+}
+
+/*--NavBar--*/
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+nav a:hover {
+    color: #555;
+}
+nav form {
+    display: flex;
+    align-items: center;
+}
+nav form input {
+    padding: 0.5em;
+    border: none;
+    border-radius: 5px;
+    margin-right: 0.5em;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+nav form button {
+    padding: 0.5em 1em;
+    background-color: #333;
+    color: rgb(185, 185, 185);
+    border: none;
+    border-radius: 5px;
+}
+nav form button:hover {
+    background-color: rgb(107, 107, 107);
+}
+
+
+
