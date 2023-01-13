@@ -27,6 +27,7 @@ require_once('db-functions.php');
 $product = findOneById($_GET['id']);
 
 ?>
+<main>
 <a href="index.php"><i class="fa-solid fa-arrow-left"></i></a>
     <div class="product-detail">
         <img class='img-zoom' src='<?= $product['image_url']?>'>
@@ -38,3 +39,4 @@ $product = findOneById($_GET['id']);
         <a href="traitement.php?action=addToCart&id=<?= $_GET['id'] ?>">Ajouter au panier<i class="fa-solid fa-cart-arrow-down"></i></a>
     </div>
     </div class="product-detail">
+</main>
