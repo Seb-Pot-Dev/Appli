@@ -32,7 +32,7 @@ session_start();
         foreach ($store as $product) {
         ?>
         <article >
-            <a class="articleContent" href="product.php?id=<?= $product['id'] ?>">
+            <a class="article-content" href="product.php?id=<?= $product['id'] ?>">
                 <div class="img-background">
                     <img src="<?= $product['image_url'] ?>" alt="<?= ucFirst($product['name']) ?>">
                 </div>

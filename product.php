@@ -8,7 +8,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="indexStyle.css">
+    <link rel="stylesheet" href="productStyle.css">
     <script src="https://kit.fontawesome.com/a45e9c27c8.js" crossorigin="anonymous"></script>
     <title>Ajout produit</title>
 </head>
@@ -22,17 +22,19 @@ session_start();
     <a href="recap.php"><i class="fa-solid fa-cart-shopping"></i></a>
 </nav>
 <?php
-'<a href="index.php">Retour</a>';
-
 require_once('db-functions.php');
 
 $product = findOneById($_GET['id']);
 
 ?>
-<a href="index.php">Retour</a>
-
-<p><?= ucFirst($product['name']) ?></p>
-<p><?= $product['description'] ?></p>
-<p><?= $product['price']; ?></p>
-
-<a href="traitement.php?action=addToCart&id=<?= $_GET['id'] ?>">Ajouter un produit</a>
+<a href="index.php"><i class="fa-solid fa-arrow-left"></i></a>
+    <div class="product-detail">
+        <img class='img-zoom' src='<?= $product['image_url']?>'>
+            <div class="product-info">
+                <p><?= ucFirst($product['name']) ?></p>
+                <p><?= $product['price']; ?>€</p>
+            
+        <p><?= $product['description'] ?></p>
+        <a href="traitement.php?action=addToCart&id=<?= $_GET['id'] ?>">Ajouter au panier<i class="fa-solid fa-cart-arrow-down"></i></a>
+    </div>
+    </div class="product-detail">

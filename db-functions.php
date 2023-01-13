@@ -62,7 +62,7 @@ function searchProducts($search) {
     $db = dbFunction();
     // Utilisez des requêtes préparées pour éviter les risques d'injection SQL
     $stmt = $db->prepare("SELECT * FROM product WHERE name LIKE ? OR description LIKE ?");
-    $search = '%' . $search . '%';
+    $search = '%' . $search . '%'; //regex (regular expression) permet d'utiliser des symboles pour cibler des caractères comme la wildcard(*)
     $stmt->bindParam(1, $search);
     $stmt->bindParam(2, $search);
     $stmt->execute();

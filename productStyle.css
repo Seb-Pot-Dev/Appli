@@ -30,7 +30,7 @@ article:hover{
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.222);
 }
 
-a.articleContent{
+a.article-content{
     display: flex;
     justify-content:space-between;
     /* align-items: center; */
@@ -38,8 +38,12 @@ a.articleContent{
     text-decoration: none;
     color: black;
 }
+.product-detail{
+    display: flex;
+    flex-direction: row;
 
-div.nameAndPrice{
+}
+.product-info{
     display: flex;
     align-items:center;
     flex-direction: column;
@@ -58,6 +62,11 @@ img {
     max-width: 90%; /* pour que l'image ne dépasse pas la largeur de l'élément parent */
     height: auto; /* pour que l'image garde son ratio d'aspect */
     max-height: 95%;
+}
+.img-zoom{
+    max-width: 30%;
+    height: auto;
+    max-height: 20%;
 }
 .productName{
     text-decoration: none;
