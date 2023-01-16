@@ -2,24 +2,81 @@
 * {
     padding: 0;
     margin: 0;
+    color: black;
 }
-#background {
-    background-color: rgb(226, 226, 226);
-    min-height: 100vh;
-    padding-top: 20px;
-  }
+
 main {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    justify-content: center;
+}
+div.body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+address{
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+}
+    header address a {
+        margin: 0px 10px;
+        text-decoration: none;
+        font-style: normal;
+        
+    }
+    /*--NavBar--*/
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        max-width: auto;
+    }
+    nav a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+    }
+    nav i:hover {
+        color: #555;
+    }
+    nav a:hover {
+        color: #555;
+    }
+    nav form {
+        display: flex;
+        align-items: center;
+    }
+    nav input {
+        padding: 0.5em;
+        border: none;
+        border-radius: 5px;
+        margin-right: 0.5em;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.688);
+    }
+    nav form button {
+        padding: 0.5em 1em;
+        background-color: #333;
+        color: rgb(185, 185, 185);
+        border: none;
+        border-radius: 5px;
+    }
+    nav form button:hover {
+        background-color: rgb(107, 107, 107);
+    }
+/*--Article--*/
+div.list-product {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-
-}
-/*--Article--*/
-article {
-    display: flex;
-    flex-direction: column;
-    justify-content:space-between;
-    background-color: #fff;
+    }
+    article {
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        background-color: #fff;
     margin: 5px; 
     box-shadow: 0 0 1px rgb(0, 0, 0);
     height: 250px;
@@ -67,41 +124,6 @@ img {
     color: #80b500
 }
 
-/*--NavBar--*/
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-}
-nav a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-}
-nav a:hover {
-    color: #555;
-}
-nav form {
-    display: flex;
-    align-items: center;
-}
-nav form input {
-    padding: 0.5em;
-    border: none;
-    border-radius: 5px;
-    margin-right: 0.5em;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-nav form button {
-    padding: 0.5em 1em;
-    background-color: #333;
-    color: rgb(185, 185, 185);
-    border: none;
-    border-radius: 5px;
-}
-nav form button:hover {
-    background-color: rgb(107, 107, 107);
-}
 /*--Other--*/
 i{
     text-decoration: none;
@@ -109,5 +131,17 @@ i{
 }
 .fa-magnifying-glass{
     color: white;
+}
+/*--Footer--*/
+footer{
+    margin-bottom: 0;
+    display: block;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+footer a{
+    margin: 10px;
 }
 

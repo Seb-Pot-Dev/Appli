@@ -5,12 +5,14 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+    <head>
+    <?php require_once('db-functions.php'); 
+    $product = findOneById($_GET['id']);?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="productStyle.css">
     <script src="https://kit.fontawesome.com/a45e9c27c8.js" crossorigin="anonymous"></script>
-    <title>Ajout produit</title>
+    <title><?= ucFirst($product['name']) ?></title>
 </head>
 <body>
 <nav>
@@ -22,9 +24,7 @@ session_start();
     <a href="recap.php"><i class="fa-solid fa-cart-shopping"></i></a>
 </nav>
 <?php
-require_once('db-functions.php');
 
-$product = findOneById($_GET['id']);
 
 ?>
 <main>

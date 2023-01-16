@@ -75,6 +75,9 @@ nav a {
 nav a:hover {
     color: #555;
 }
+nav i:hover {
+    color: #555;
+}
 nav form {
     display: flex;
     align-items: center;
