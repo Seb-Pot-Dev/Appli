@@ -9,7 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="adminStyle.css">
-    <title>Ajout produit</title>
+    <title>Ajout produit en BDD</title>
 </head>
 
 <body>
@@ -35,8 +35,8 @@ session_start();
         ?>
         <!-- CONTAINER -->
         <div id="container">
-            <h1>Ajouter un produit</h1>
-            <form action="traitement.php?action=add" method="post">
+            <h1>Ajouter un produit dans ma BDD</h1>
+            <form action="traitement.php?action=addProductToDatabase" method="post">
                 <p class='form'>
                     <label>
                         Nom du produit :
@@ -45,18 +45,24 @@ session_start();
                 </p>
                 <p class='form'>
                     <label>
-                        Prix du produit :
-                        <input type="number" step="any" name="price">
+                        Prix :
+                        <input type="number" name="price" >
                     </label>
                 </p>
                 <p class='form'>
                     <label>
-                        Quantité désirée :
-                        <input type="number" name="qtt" value="1">
+                        Description :
+                        <input type="text" name="description">
+                    </label>
+                </p>
+                <p class='form'>
+                    <label>
+                        Url de l'image :
+                        <input type="text" name="url" >
                     </label>
                 </p>
                 <p>
-                    <input id="addProduct" type="submit" name="submit" value="Ajouter le produit">
+                    <input id="addProduct" type="submit" name="submit" value="Ajouter le produit en BDD">
                 </p>
             </form>
         </div>

@@ -113,4 +113,23 @@ switch ($_GET["action"]) {
 
 
         break;
+/* REVOIR PROBLEME ICI */
+    case "addProductToDatabase":
+        if (isset($_POST['submit'])) {
+            $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_FULL_SPECIAL_CHARS); //FILTER_SANITIZE_FULL_SPECIAL_CHARS(FILTER_SANITIZE_STRING is deprecated). It removes any special chars or HTMLcode. Security: no html injection possible.
+            $price = filter_input(INPUT_POST, "price", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION); //FILTER_VALIDATE_FLOAT validate the input only if its a Float. FILTER_FLAG_ALLOW_FRACTION does allow chars "," or "." for the decimals.
+            // $qtt = filter_input(INPUT_POST, "qtt", FILTER_VALIDATE_INT); // FILTER_VALIDATE_INT = validate only if the input is an Integer different from 0 (wich is consider as Null)
+            $description = filter_input(INPUT_POST, "description", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $image_url = filter_input(INPUT_POST, "image_url", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+                insertProduct($name, $price, $description, $image_url); 
+
+                //SET A SUCCESS MESSAGE
+                $_SESSION['message'] = "<p class='succes'>Produit ajouter à la BDD avec succès.<p>";
+            } else {
+                //SET AN ERROR MESSAGE
+                $_SESSION['message'] = "<p class='error'>Il y a eu une erreur lors de l'ajout du produit à la BDD. Recommencez s'il vous plait.";
+            }
+        
+        break;
 }

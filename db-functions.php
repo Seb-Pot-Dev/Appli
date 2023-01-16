@@ -44,13 +44,13 @@ function findOneById($id)
     $store = $storeStatement->fetch();
     return $store;
 }
-function insertProduct($name, $price, $description){
+function insertProduct($name, $price, $description, $image_url){
     $db = dbFunction();
-    $sqlQuery = 'INSERT INTO product (name, price, description)
-    VALUES (:name, :price, :description)';
+    $sqlTest = 'INSERT INTO product (name, price, description, image_url)
+    VALUES (:name, :price, :description, :image_url)';
 
-    $storeStatement = $db->prepare($sqlQuery);
-    $storeStatement->execute([':name'=>$name, ':price'=>$price, ':description'=>$description]);
+    $storeStatement = $db->prepare($sqlTest);
+    $storeStatement->execute([':name'=>$name, ':price'=>$price, ':description'=>$description, ':image_url'=>$image_url]);
     $store = $storeStatement->fetch();
     return $store;
 }

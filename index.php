@@ -25,6 +25,7 @@ session_start();
 
         <nav>
             <a href="index.php"><i class="fa-solid fa-house"></i></a>
+            <a href="admin.php"><i class="fa-solid fa-wand-magic-sparkles"></i></a>
             <form action="search.php" method="post">
                 <input type="text" name="search">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
