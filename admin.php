@@ -9,11 +9,35 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="adminStyle.css">
+    <script src="https://kit.fontawesome.com/a45e9c27c8.js" crossorigin="anonymous"></script>
     <title>Ajout produit en BDD</title>
 </head>
 
 <body>
-    <main id="background">
+    <header>
+        <address>
+            <a href="mailto:sebastien.pothee.dev@gmail.com"><i class="fa-regular fa-envelope"></i> sebastien.pothee.dev@gmail.com</a>
+            <a href=""><i class="fa-regular fa-map"></i> 7 rue Haute, Paris</a>
+        </address>
+    </header>
+<div class="body">
+    <main>
+        <nav>
+            <a href="index.php"><i class="fa-solid fa-house"></i></a>
+            <a href="admin.php"><i class="fa-solid fa-wand-magic-sparkles"></i></a>
+            <form action="search.php" method="post">
+                <input type="text" name="search">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <a href="recap.php"><i class="fa-solid fa-cart-shopping"></i>(<?php
+                                                                            $total = 0;
+                                                                            if (isset($_SESSION['products'])) {
+                                                                                foreach ($_SESSION['products'] as $index => $product) {
+                                                                                    $total += $product['qtt'];
+                                                                                }
+                                                                            }
+                                                                            echo $total ?>)</a>
+        </nav>
 
         <?php
         // Check if a message is set in the session
@@ -66,10 +90,9 @@ session_start();
                 </p>
             </form>
         </div>
-</body>
-
-<button id="basket" onclick="location.href='recap.php'" type="button">
-    Mon panier (<?php
+        
+        <button id="basket" onclick="location.href='recap.php'" type="button">
+            Mon panier (<?php
                 $total = 0;
                 if (isset($_SESSION['products'])) {
                     foreach ($_SESSION['products'] as $index => $product) {
@@ -81,5 +104,6 @@ session_start();
 </button>
 
 
-</html>
 </main>
+</body>
+</html>

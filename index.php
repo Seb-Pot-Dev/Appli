@@ -20,8 +20,8 @@ session_start();
             <a href=""><i class="fa-regular fa-map"></i> 7 rue Haute, Paris</a>
         </address>
     </header>
-    <div class="body">
-    <main>
+        <div class="body">
+            <main>
 
         <nav>
             <a href="index.php"><i class="fa-solid fa-house"></i></a>
@@ -38,8 +38,8 @@ session_start();
                                                                                 }
                                                                             }
                                                                             echo $total ?>)</a>
-            </nav>
-        <div class="list-product">
+        </nav>
+    <div class="list-product">
             <?php
             require_once('db-functions.php');
 

@@ -1,23 +1,73 @@
+/*--General--*/
 * {
   padding: 0;
   margin: 0;
+  color: black;
 }
 
-#background {
-  background-color: rgb(212, 212, 212);
-  min-height: 100vh;
-  padding-top: 20px;
+main {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  justify-content: center;
 }
-
-#container {
-  border: 3px solid black;
-  max-width: 600px;
-  margin: auto;
-  /* margin-top: 100px; */
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 0 20px rgb(0, 0, 0);
+div.body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+address{
+  display: flex;
+  justify-content: space-around;
+  text-decoration: none;
+}
+  header address a {
+      margin: 0px 10px;
+      text-decoration: none;
+      font-style: normal;
+      
+  }
+/*--NAV--*/
+/*--NavBar--*/
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  max-width: auto;
+}
+nav a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+nav i:hover {
+  color: #555;
+}
+nav a:hover {
+  color: #555;
+}
+nav form {
+  display: flex;
+  align-items: center;
+}
+nav input {
+  padding: 0.5em;
+  border: none;
+  border-radius: 5px;
+  margin-right: 0.5em;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.688);
+}
+nav form button {
+  padding: 0.5em 1em;
+  background-color: #333;
+  color: rgb(185, 185, 185);
+  border: none;
+  border-radius: 5px;
+}
+nav form button:hover {
+  background-color: rgb(107, 107, 107);
+}
+/*--FORM--*/
 label {
   font-size: 18px;
   font-weight: 600;

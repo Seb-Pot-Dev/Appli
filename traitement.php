@@ -113,7 +113,7 @@ switch ($_GET["action"]) {
 
 
         break;
-/* REVOIR PROBLEME ICI */
+        /* REVOIR PROBLEME ICI */
     case "addProductToDatabase":
         if (isset($_POST['submit'])) {
             $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_FULL_SPECIAL_CHARS); //FILTER_SANITIZE_FULL_SPECIAL_CHARS(FILTER_SANITIZE_STRING is deprecated). It removes any special chars or HTMLcode. Security: no html injection possible.
@@ -122,14 +122,14 @@ switch ($_GET["action"]) {
             $description = filter_input(INPUT_POST, "description", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $image_url = filter_input(INPUT_POST, "image_url", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-                insertProduct($name, $price, $description, $image_url); 
+            insertProduct($name, $price, $description, $image_url);
+            //SET A SUCCESS MESSAGE
+            $_SESSION['message'] = "<p class='succes'>Produit ajouter à la BDD avec succès.<p>";
+            header("Location:admin.php");
+        } else {
+            //SET AN ERROR MESSAGE
+            $_SESSION['message'] = "<p class='error'>Il y a eu une erreur lors de l'ajout du produit à la BDD. Recommencez s'il vous plait.";
+        }
 
-                //SET A SUCCESS MESSAGE
-                $_SESSION['message'] = "<p class='succes'>Produit ajouter à la BDD avec succès.<p>";
-            } else {
-                //SET AN ERROR MESSAGE
-                $_SESSION['message'] = "<p class='error'>Il y a eu une erreur lors de l'ajout du produit à la BDD. Recommencez s'il vous plait.";
-            }
-        
         break;
 }
